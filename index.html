@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para mi Novia ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#ffccff, #ffe6f0);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d63384;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .foto {
+      margin-top: 20px;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #6f42c1;
+      text-align: center;
+      animation: floatIn 1.5s ease-in-out forwards;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    audio {
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .hearts span {
+      position: absolute;
+      display: block;
+      color: pink;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Día, Amor 💖</h1>
+  <img src="nosotros.jpg" alt="Foto de nosotros" class="foto">
+  <p style="text-align:center; font-size: 1.2rem; color: #444;">300 días juntos y cada día te amo más...</p>
+
+  <button onclick="mostrarMensaje()">Toca aquí 💌</button>
+  <div class="message" id="mensaje">
+    ¡Gracias por hacer mi vida más linda!<br />
+    Te amo con todo mi corazón, hoy y siempre 💘
+  </div>
+
+  <audio controls autoplay loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <div class="hearts">
+    <script>
+      for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("span");
+        heart.textContent = "❤";
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+        document.querySelector(".hearts").appendChild(heart);
+      }
+    </script>
+  </div>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById("mensaje").style.display = "block";
+    }
+  </script>
+</body>
+</html>
